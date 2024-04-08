@@ -31,9 +31,9 @@ if(isset($_GET['update'])){
     $data['gmail']=$_GET['gmail'];
     $data['review']=$_GET['review'];
     
-    $id=$_GET['edit'];
+    $id=$_GET['edits'];
 
-    if(insert($table,$data)){
+    if(update($table,$data,"id=$id")){
         header("location:showenquiry.php?saved='success'");
     }else{
         header("location:showenquiry.php?failed='error'");

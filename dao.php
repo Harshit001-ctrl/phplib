@@ -107,7 +107,7 @@ function imageupload($file, $uploadfile)
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($file)) {
         if ($file["error"] == 0) {
             $imagefiletype = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
-            if (getimagesize($file["tmp_name"]) !== false) {
+            if (getimagesize($file["tmp_name"]) !== false) {                
                 $allowedformats = array("jpg", "jpeg", "png", "gif");
                 if (in_array($imagefiletype, $allowedformats)) {
                     $uploadfile = $uploadfile . "." . $imagefiletype;

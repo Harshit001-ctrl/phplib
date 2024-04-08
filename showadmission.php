@@ -5,27 +5,27 @@ require_once("dao.php");
 <?php
 if (isset($_GET['saved'])) {
 ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success</strong> Enquiry has been updated.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success</strong> Enquiry Updated
+  </div>
+
 <?php
 } else if (isset($_GET['failed'])) {
 ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error</strong> Enquiry has not updated.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Error</strong> Enquiry not Updated
+  </div>
 <?php
-}
-?>
+} ?>
 
 <div class="table-responsive">
 
-<table class="table table-hover table-striped">
+  <table class="table table-hover table-striped">
 
-<thead>
-    <tr>
+    <thead>
+      <tr>
         <th>admission_id</th>
         <th>gsn</th>
         <th>name</th>
@@ -42,39 +42,39 @@ if (isset($_GET['saved'])) {
         <th>View</th>
         <th>Edit</th>
         <th>Delete</th>
-    </tr>
-</thead>
+      </tr>
+    </thead>
 
-<tbody>
+    <tbody>
 
-<?php 
-$table="student";
-$rows=selectall($table);
-for($i=0;$i<count($rows);$i++) {
+      <?php
+      $table = "student";
+      $rows = selectall($table);
+      for ($i = 0; $i < count($rows); $i++) {
 
-?>
+      ?>
 
-<tr>
-    <td><?php echo $rows[$i]['admission_id'] ;?></td>
-    <td><?php echo $rows[$i]['gsn'] ;?></td>
-    <td><?php echo $rows[$i]['name']; ?></td>
-    <td><?php echo $rows[$i]['contact']; ?></td>
-    <td><?php echo $rows[$i]['email']; ?></td>
-    <td><?php echo $rows[$i]['city']; ?></td>
-    <td><img src="saved photo/<?php echo $rows[$i]["image"]; ?>" alt="" width="100px"></td>
-    <td><img src="saved photo/<?php echo $rows[$i]["aadhaarfront"]; ?>" alt="" width="100px"></td>
-    <td><img src="saved photo/<?php echo $rows[$i]["aadhaarback"]; ?>" alt="" width="100px"></td>
-
-
-    <td><a href="viewprofile.php?view=<?php echo $rows[$i]['admission_id'];?>" class="btn btn-primary " >View</a></td>
-    <td><a href="edit_admission.php?edit=<?php echo $rows[$i]['admission_id'];?>" class="btn btn-warning " >Edit</a></td>
-    <td><a href="admission_controller.php?deleteAdm=<?php echo $rows[$i]['admission_id'];?>" class="btn btn-danger" >Delete</a></td>
+        <tr>
+          <td><?php echo $rows[$i]['admission_id']; ?></td>
+          <td><?php echo $rows[$i]['gsn']; ?></td>
+          <td><?php echo $rows[$i]['name']; ?></td>
+          <td><?php echo $rows[$i]['contact']; ?></td>
+          <td><?php echo $rows[$i]['email']; ?></td>
+          <td><?php echo $rows[$i]['city']; ?></td>
+          <td><img src="saved photo/<?php echo $rows[$i]["image"]; ?>" alt="" width="100px"></td>
+          <td><img src="saved photo/<?php echo $rows[$i]["aadhaarfront"]; ?>" alt="" width="100px"></td>
+          <td><img src="saved photo/<?php echo $rows[$i]["aadhaarback"]; ?>" alt="" width="100px"></td>
 
 
-</tr>
-<?php
- }
-?>
-</tbody>
-</table>
+          <td><a href="view_admission.php?view=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-primary ">View</a></td>
+          <td><a href="edit_admission.php?edit=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-warning">Edit</a></td>
+          <td><a href="admission_controller.php?deleteAdm=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-danger">Delete</a></td>
+
+
+        </tr>
+      <?php
+      }
+      ?>
+    </tbody>
+  </table>
 </div>

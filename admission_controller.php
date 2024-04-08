@@ -7,14 +7,15 @@ if (isset($_POST['admission'])) {
     $length=4-strlen($gsn."");
     $repeat=str_repeat("0",$length).$gsn;
 
-    $admission_id=strtolower(substr($_POST['name'],0,3)).$_POST['pin'].$repeat;
     
     $table = "student";
     $data = array();
+    
+    $admission_id = strtolower(substr($_POST['name'], 0, 3)) . $_POST['pin'] . $repeat;
 
+    
     $data["admission_id"]=$admission_id;
     $data['gsn']=$gsn;
-
     $data['name'] = $_POST['name'];
     $data['contact'] = $_POST['contact'];
     $data['email'] = $_POST['email'];
@@ -23,14 +24,13 @@ if (isset($_POST['admission'])) {
     $data['aadharnumber'] = $_POST['aadharnumber'];
     $data['pin'] = $_POST['pin'];
     $data['study'] = $_POST['study'];
-
-    $data['image']=imageupload($_FILES['profileimage'], $admission_id);
+    $data['image']=imageupload($_FILES['image'], $admission_id);
     $data['aadhaarfront']=imageupload(($_FILES["aadhaarfront"]),"aadhaarfront".$admission_id);
     $data['aadhaarback']=imageupload(($_FILES["aadhaarback"]),"aadhaarback".$admission_id);
     
 
 
-if(insert($table,$data)){
+if(insert($table,$data)){   
     // echo "success";
     header("location:admission.php?saved='success'");
 }else{
@@ -39,11 +39,9 @@ if(insert($table,$data)){
     // echo "error";
 }
 }
-
-if(isset($_GET['update_admission'])){
-    $table="student";
-    $data=array();
-
+// edit admission use h sirf or koi functon nhi h
+if(isset($_GET['edit_admission'])){
+    $admission_id=$_POST['admission_id'];
     $data['name']= $_POST['name'];
     $data['contact']=$_POST['contact'];
     $data['email']=$_POST['email'];
@@ -52,19 +50,26 @@ if(isset($_GET['update_admission'])){
     $data['aadharnumber']=$_POST['aadharnumber'];
     $data['pin']=$_POST['pin'];
     $data['study']=$_POST['study'];
-    $data['image']=$_POST['image'];
-    $data['aadhaarfront']=$_POST['aadhaarfront'];
-    $data['aadhaarback']=$_POST['aadhaarback'];
-    
-    $id=$_GET['edit'];
+  
+    if($_FILES["image"]['name']!=""){
+        $data['image']=imageupload($_FILES["image"], $admission_id);
+    }
+    if($_FILES["aadhaarfront"]['name']!=""){
+        $data['aadhaarfront']=imageupload($_FILES["aadhaarfront"], "aadhaarfront".$admission_id);
+    }
+    if($_FILES["aadhaarback"]['name']!=""){
+        $data['aadhaarback']=imageupload($_FILES["aadhaarback"], "aadhaarback".$admission_id);
+    }
 
-    if(insert($table,$data)){
-        header("location:showadmission.php?saved='success'");
+
+    if(update("student", $data,"admission_id='$admission_id'")){
+        header("location:showadmission.php?saved='success'");            
+        // echo "success";
     }else{
         header("location:showadmission.php?failed='error'");
-
+        // echo "fail";
     }
-}
+
 
 if(isset($_GET['deleteAdm'])){
     $id=$_GET['deleteAdm'];
@@ -74,6 +79,7 @@ if(isset($_GET['deleteAdm'])){
         header("location:showadmission.php?failed='error'");
 
     }
+}
 }
 
 ?>

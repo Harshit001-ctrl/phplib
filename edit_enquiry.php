@@ -85,7 +85,7 @@ if(isset($_GET['edit'])){
                     <textarea name="review" id="" cols="30" rows="10" placeholder="comments" class="form-control" value="<?php echo $row['review'];?>"></textarea>
                 </div>
             </div>
-            <input type="hidden" name="edit" value="<?php echo $update;?>">
+            <input type="hidden" name="edits" value="<?php echo $update;?>">
             <button class="btn btn-primary" name="update">Submit</button>
     </div>
     </form>
