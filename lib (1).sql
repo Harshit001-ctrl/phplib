@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 04:42 AM
+-- Generation Time: Apr 11, 2024 at 07:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -42,15 +42,9 @@ CREATE TABLE `enquiry` (
 --
 
 INSERT INTO `enquiry` (`id`, `name`, `mobileno`, `city`, `state`, `gmail`, `review`) VALUES
-(7, 'Harshit Yadav 111', '9518125798', 'Rewari', 'Haryana', 'harshitrao@gmail.com', 'all r godd'),
-(10, 'Harshit Rao', '9518125798', 'Rewari', 'Haryana', 'harshitrao@gmail.com', ''),
-(11, 'Harshit Rao', '9518125798', 'Rewari', 'Haryana', 'harshitrao@gmail.com', 'good hello'),
-(13, 'user 121', '1231231231', 'Rewari', 'Haryana', 'user1@gmail.com', 'all r godd'),
-(14, 'user 19898', '1231231231', 'Rewari', 'Haryana', 'user1@gmail.com', 'hjhlj'),
-(15, 'Harshit Yadav 65', '9518125798', 'Rewari', 'Haryana', 'harshit6453@gmail.com', 'world'),
-(16, 'billu boxer', '`1`1331131', 'merut', 'uo', 'harshit@gmail.com', 'sc'),
-(17, 'Harshit Yadav', '1351873810', 'Rewari', 'Haryana', 'harshit@gmail.com', 'dksd'),
-(18, 'user 12', '1231231231', 'Rewari', 'Haryana', 'user1@gmail.com', '');
+(17, 'Harshit Yadav', '9518125798', 'Rewari', 'Haryana', 'harshit@gmail.com', ''),
+(21, 'billu boxer141414', '`1`1331131', 'merut', 'uo', 'harshit@gmail.com', ''),
+(23, 'abgd', '8901164311', 'Rewari', 'Haryana', 'harshit@gmail.com', ';lkhgfdfghjkllkjhgf');
 
 -- --------------------------------------------------------
 
@@ -59,7 +53,7 @@ INSERT INTO `enquiry` (`id`, `name`, `mobileno`, `city`, `state`, `gmail`, `revi
 --
 
 CREATE TABLE `student` (
-  `admission_id` int(13) NOT NULL,
+  `admission_id` varchar(13) NOT NULL,
   `gsn` int(11) NOT NULL,
   `name` varchar(20) DEFAULT NULL,
   `contact` varchar(20) DEFAULT NULL,
@@ -79,8 +73,31 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`admission_id`, `gsn`, `name`, `contact`, `email`, `state`, `city`, `aadharnumber`, `pin`, `study`, `image`, `aadhaarfront`, `aadhaarback`) VALUES
-(4, 4, 'ashu', '8901164933', 'bjsvbd@gmail.com', 'Haryana', 'Rewari', '09876543211', '123401', '11', 'ash1234010004.jpg', 'aadhaarfrontash1234010004.jpg', 'aadhaarbackash1234010004.jpg'),
-(5, 5, 'kunal', '8901164944', 'bjsvbd@gmail.com', 'Haryana', 'Rewari', '098765433122', '123401', '4', 'kun1234010005.jpg', 'aadhaarfrontkun1234010005.png', 'aadhaarbackkun1234010005.jpg');
+('kun1234010003', 3, 'Kunal', '9518125798', 'harshityadav3080@gmail.com', 'Haryana', 'Rewari', '1323346436', '123401', '3', 'kun1234010003.png', 'aadhaarfrontkun1234010003.jpg', 'aadhaarbackkun1234010003.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscriber`
+--
+
+CREATE TABLE `subscriber` (
+  `subid` int(11) NOT NULL,
+  `admission_id` varchar(30) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `feereciveddate` date DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscriber`
+--
+
+INSERT INTO `subscriber` (`subid`, `admission_id`, `start_date`, `end_date`, `feereciveddate`, `amount`, `status`) VALUES
+(1, 'kun1234010003', '2024-04-12', '2024-04-30', '0000-00-00', 600.00, 0),
+(2, 'kun1234010003', '2024-04-11', '2024-04-16', '0000-00-00', 444.00, 0);
 
 --
 -- Indexes for dumped tables
@@ -99,6 +116,13 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`admission_id`);
 
 --
+-- Indexes for table `subscriber`
+--
+ALTER TABLE `subscriber`
+  ADD PRIMARY KEY (`subid`),
+  ADD KEY `fk` (`admission_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -106,13 +130,13 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `enquiry`
 --
 ALTER TABLE `enquiry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `student`
+-- AUTO_INCREMENT for table `subscriber`
 --
-ALTER TABLE `student`
-  MODIFY `admission_id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `subscriber`
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

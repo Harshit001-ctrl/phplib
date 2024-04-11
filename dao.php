@@ -127,3 +127,11 @@ function imageupload($file, $uploadfile)
         }
     }
 }
+
+function selectByCondition($table, $condition)
+{
+    global $conn;
+    $sql = "select * from $table where $condition";
+    $result = mysqli_query($conn, $sql);
+    return $rows = fetchAll($result);
+}

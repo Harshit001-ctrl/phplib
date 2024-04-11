@@ -42,6 +42,7 @@ if (isset($_GET['saved'])) {
         <th>View</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>subscription</th>
       </tr>
     </thead>
 
@@ -68,7 +69,8 @@ if (isset($_GET['saved'])) {
 
           <td><a href="view_admission.php?view=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-primary ">View</a></td>
           <td><a href="edit_admission.php?edit=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-warning">Edit</a></td>
-          <td><a href="admission_controller.php?deleteAdm=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-danger">Delete</a></td>
+          <td><a href="admission_controller.php?delete=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-danger">Delete</a></td>
+          <td><a href="subscribe.php?subscribed=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-danger">Subscribed</a></td>
 
 
         </tr>

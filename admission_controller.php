@@ -39,9 +39,13 @@ if(insert($table,$data)){
     // echo "error";
 }
 }
+
+
 // edit admission use h sirf or koi functon nhi h
-if(isset($_GET['edit_admission'])){
+if(isset($_POST['edit_admission'])){
+ 
     $admission_id=$_POST['admission_id'];
+    $data['gsn']=$gsn;
     $data['name']= $_POST['name'];
     $data['contact']=$_POST['contact'];
     $data['email']=$_POST['email'];
@@ -71,15 +75,17 @@ if(isset($_GET['edit_admission'])){
     }
 
 
-if(isset($_GET['deleteAdm'])){
-    $id=$_GET['deleteAdm'];
-    if(deleteRecord("student","admission_id=$id")){
+}
+
+if(isset($_GET['delete'])){
+     $id=$_GET['delete'];
+    
+    if(deleteRecord("student","admission_id='$id'")){
         header("location:showadmission.php?saved='success'");
     }else{
         header("location:showadmission.php?failed='error'");
 
     }
-}
 }
 
 ?>
