@@ -7,7 +7,7 @@ if (isset($_GET['saved'])) {
 ?>
   <div class="alert alert-success alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success</strong> Enquiry Updated
+    <strong>Success</strong> Admission Updated
   </div>
 
 <?php
@@ -15,7 +15,7 @@ if (isset($_GET['saved'])) {
 ?>
   <div class="alert alert-danger alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Error</strong> Enquiry not Updated
+    <strong>Error</strong> Admission not Updated
   </div>
 <?php
 } ?>

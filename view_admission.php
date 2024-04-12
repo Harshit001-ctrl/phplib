@@ -11,7 +11,7 @@ if (isset($_GET['view'])) {
 
 
 <div class="contaier-fluid">
-    <h1 class="mt-3">Admission</h1>
+    <h1 class="mt-3">View Admission</h1>
     <div class="container">
         <form class="" method="post" enctype="multipart/form-data" action="admission_controller.php">
 

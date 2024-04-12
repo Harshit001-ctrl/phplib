@@ -3,6 +3,7 @@
 
 <?php 
 
+
 if(isset($_GET['subscribe'])){
 
     $table="subscriber";
@@ -13,12 +14,14 @@ if(isset($_GET['subscribe'])){
     $data['end_date']=$_GET['end_date'];
     $data['feereciveddate']=$_GET['feereciveddate'];
     $data['amount']=$_GET['amount'];
+    $data['status']=$_GET['status'];
 
 
     if(insert($table,$data)){
-        header("location:showadmission.php");
+        header("location:showadmission.php?saved='Sbuscription Success'");
     }else{
-        header("location:showadmission.php");
+        header("location:showadmission.php?failed='Sbuscription error'");
+
     }
 
 
