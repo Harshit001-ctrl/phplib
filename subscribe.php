@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
 <?php require_once("dao.php");?>
 <?php require_once("header.php");?>
 
@@ -71,3 +76,9 @@ if(isset($_GET['subscribed'])){
     </div>
     <?php }?>
 </div>
+
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

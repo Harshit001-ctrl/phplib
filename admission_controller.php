@@ -41,7 +41,7 @@ if(insert($table,$data)){
 }
 
 
-// edit admission use h sirf or koi functon nhi h
+
 if(isset($_POST['edit_admission'])){
  
     $admission_id=$_POST['admission_id'];

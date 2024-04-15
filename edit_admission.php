@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
 <?php include_once('header.php'); ?>
 
 <?php
@@ -185,3 +190,10 @@ if(isset($_GET['edit'])){
     var aadhaarbackpreview = document.getElementById("aadhaarbackpreview");
     showImage(aadhaarback, aadhaarbackpreview);
 </script>
+
+
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

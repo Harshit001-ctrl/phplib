@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
 <?php require_once("dao.php"); ?>
 <?php require_once("header.php"); ?>
 
@@ -11,7 +16,7 @@ if (isset($_GET['view'])) {
 
 
 <div class="contaier-fluid">
-    <h1 class="mt-3">View Admission</h1>
+    <h1 class="mt-3">View Admeission</h1>
     <div class="container">
         <form class="" method="post" enctype="multipart/form-data" action="admission_controller.php">
 
@@ -153,3 +158,9 @@ if (isset($_GET['view'])) {
     </div>
 
 </div>
+
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

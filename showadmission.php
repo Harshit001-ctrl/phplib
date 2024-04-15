@@ -1,3 +1,9 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
+
 <?php
 require_once("header.php");
 require_once("dao.php");
@@ -43,11 +49,12 @@ if (isset($_GET['saved'])) {
         <th>Edit</th>
         <th>Delete</th>
         <th>subscription</th>
+        <th>All subs.</th>
       </tr>
     </thead>
 
     <tbody>
-
+  
       <?php
       $table = "student";
       $rows = selectall($table);
@@ -71,6 +78,7 @@ if (isset($_GET['saved'])) {
           <td><a href="edit_admission.php?edit=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-warning">Edit</a></td>
           <td><a href="admission_controller.php?delete=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-danger">Delete</a></td>
           <td><a href="subscribe.php?subscribed=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-danger">Subscribed</a></td>
+          <td><a href="view_subscribe.php?All_subscribed=<?php echo $rows[$i]['admission_id']; ?>" class="btn btn-success">All subs.</a></td>
 
 
         </tr>
@@ -80,3 +88,8 @@ if (isset($_GET['saved'])) {
     </tbody>
   </table>
 </div>
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

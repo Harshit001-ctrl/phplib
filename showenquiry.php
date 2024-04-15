@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
 <?php require_once('dao.php'); ?>
 <?php require_once('header.php'); ?>
 <?php 
@@ -61,3 +66,9 @@ if(isset($_GET['saved'])){
 </div>
 
 <?php require_once('footer.php');?>
+
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

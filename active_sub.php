@@ -1,56 +1,51 @@
-<?php
-require_once ("header.php");
-require_once ("dao.php");
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
 ?>
+<?php require_once('dao.php'); ?>
+<?php require_once('header.php'); ?>
 
-<div class="table-responsive">
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Fees Received Date</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $table = "subscriber";
-            // $rows = selectAll($table);
-            $rows= selectByCondition($table, "status=1");
+<div class="table-responsive ">
 
-            for ($i = 0; $i < count($rows); $i++) {
-                // print_r($rows[$i]['name']);
-                ?>
-                <tr>
-                    <td><?php echo $rows[$i]['subid']; ?></td>
-                    <td><?php echo $rows[$i]['admission_id']; ?></td>
-                    <td><?php echo $rows[$i]['start_date']; ?></td>
-                    <td><?php echo $rows[$i]['end_date']; ?></td>
-                    <td><?php echo $rows[$i]['feereciveddate']; ?></td>
-                    <td><?php echo $rows[$i]['amount']; ?></td>
-                    <!-- <td><?php echo $rows[$i]['status']; ?></td> -->
-                    <!-- <td><a href="edit_enquiry.php?edit=<?php echo $rows[$i]['id']; ?>">Edit</a></td>
-                    <td><a href="enquiry_controller.php?del=<?php echo $rows[$i]['id']; ?>">Delete</a></td> -->
-                </tr>
-                <?php
-            }
-            ?>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Fees Received Date</th>
-                <th>Amount</th>
-            </tr>
-        </tfoot>
+    <table class="table table-hover table-striped ">
+
+       <thead class="table table-dark">
+        <tr> 
+            <td>Admission Id</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td>Fee Recived Date</td>
+            <td>Amount</td>
+            <td>Status</td>
+        </tr>
+       </thead>
+
+       <tbody>
+        <?php 
+        $table="subscriber";
+        $row=selectByCondition($table,"status=1");
+        for($i=0;$i<count($row);$i++){
+        ?>
+
+        <tr>
+            <td><?php echo $row[$i]['admission_id']?></td>
+            <td><?php echo $row[$i]['start_date']?></td>
+            <td><?php echo $row[$i]['end_date']?></td>
+            <td><?php echo $row[$i]['feereciveddate']?></td>
+            <td><?php echo $row[$i]['amount']?></td>
+            <td><?php echo $row[$i]['status']?></td>
+        </tr>
+        <?php }?>
+       </tbody>
+
+
     </table>
+
 </div>
 
-
-<?php require_once ("footer.php"); ?>
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

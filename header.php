@@ -76,9 +76,11 @@
       <li class="nav-item">
         <a class="nav-link" href="active_sub.php"><i class="fas fa-book-reader"></i>Avtive subs.</a>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="end_sub.php"><i class="fas fa-book-reader"></i>End subs.</a>
+        <a class="nav-link" href="logout.php"><i class="fas fa-book-reader"></i>Log Out</a>
       </li>
+      
 
 
 

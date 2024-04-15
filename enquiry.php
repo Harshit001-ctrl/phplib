@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
 <?php require_once('header.php');?>
 
 <?php 
@@ -83,3 +88,9 @@ if(isset($_GET['saved'])){
     </form>
 
 </div>
+
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>

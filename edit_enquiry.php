@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+if(isset($_SESSION['people'])){
+?>
 <?php require_once('header.php')?>
 <?php 
 
@@ -92,3 +97,9 @@ if(isset($_GET['edit'])){
 
 </div>
 <?php }?>
+
+<?php
+}else{
+  header("location:login.php?error=please login first");
+}
+?>
