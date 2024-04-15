@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 07:22 PM
+-- Generation Time: Apr 15, 2024 at 06:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -73,7 +73,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`admission_id`, `gsn`, `name`, `contact`, `email`, `state`, `city`, `aadharnumber`, `pin`, `study`, `image`, `aadhaarfront`, `aadhaarback`) VALUES
-('kun1234010003', 3, 'Kunal', '9518125798', 'harshityadav3080@gmail.com', 'Haryana', 'Rewari', '1323346436', '123401', '3', 'kun1234010003.png', 'aadhaarfrontkun1234010003.jpg', 'aadhaarbackkun1234010003.jpg');
+('har1234010001', 1, 'Harshit Yadav', '9518125798', 'harshityadav3080@gmail.com', 'Haryana', 'Rewari', '4565455465', '123401', '4', 'har1234010001.png', 'aadhaarfronthar1234010001.jpg', 'aadhaarbackhar1234010001.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,31 @@ CREATE TABLE `subscriber` (
 
 INSERT INTO `subscriber` (`subid`, `admission_id`, `start_date`, `end_date`, `feereciveddate`, `amount`, `status`) VALUES
 (1, 'kun1234010003', '2024-04-12', '2024-04-30', '0000-00-00', 600.00, 0),
-(2, 'kun1234010003', '2024-04-11', '2024-04-16', '0000-00-00', 444.00, 0);
+(2, 'kun1234010003', '2024-04-11', '2024-04-16', '0000-00-00', 444.00, 0),
+(3, 'kun1234010003', '2024-04-13', '2024-04-30', '0000-00-00', 600.00, 1),
+(4, 'kun1234010003', '2024-04-17', '2024-04-30', '0000-00-00', 400.00, 1),
+(5, 'kun1234010003', '2024-04-06', '2024-04-16', '0000-00-00', 1.00, 0),
+(6, 'har1234010001', '2024-04-19', '2024-04-24', '0000-00-00', 600.00, 1),
+(7, 'har1234010001', '2024-03-14', '2024-03-31', '0000-00-00', 600.00, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userid` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `userpassword` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `username`, `userpassword`) VALUES
+(1, 'harshit', 'harshit');
 
 --
 -- Indexes for dumped tables
@@ -123,6 +147,12 @@ ALTER TABLE `subscriber`
   ADD KEY `fk` (`admission_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -136,7 +166,13 @@ ALTER TABLE `enquiry`
 -- AUTO_INCREMENT for table `subscriber`
 --
 ALTER TABLE `subscriber`
-  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
