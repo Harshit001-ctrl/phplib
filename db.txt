@@ -1,0 +1,49 @@
+create table subscriber(
+	subid int,
+    admission_id varchar(30),
+    start_date date,
+    end_date date,
+    CONSTRAINT fk FOREIGN key subscriber(admission_id) REFERENCES student(admission_id)
+);
+
+create table seats(
+    seatid int primary key,
+    admission_id varchar(30),
+    CONSTRAINT fkstudent FOREIGN key seats(admission_id) REFERENCES student(admission_id)
+);
+
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('1', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('2', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('3', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('4', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('5', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('6', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('7', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('8', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('9', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('10', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('11', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('12', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('13', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('14', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('15', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('16', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('17', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('18', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('19', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('20', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('21', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('22', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('23', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('24', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('25', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('26', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('27', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('28', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('29', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('30', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('31', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('32', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('33', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('34', NULL);
+INSERT INTO `seats` (`seatid`, `admission_id`) VALUES ('35', NULL);
